@@ -1,0 +1,6 @@
+{
+  "name": "2026 IRL Cash Flow Vectors",
+  "description": "Interactive intelligence suite, vector explorer, and portfolio simulator for 100+ non-real estate modern cash flow methods in 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

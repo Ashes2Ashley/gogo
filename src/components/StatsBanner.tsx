@@ -52,11 +52,11 @@ export const StatsBanner: React.FC<StatsBannerProps> = ({
             </button>
 
             <button
-              onClick={() => onQuickPresetSelect('zero_capital_bootstrap')}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium border border-slate-700 transition-colors"
+              onClick={() => onQuickPresetSelect('apt_redops_jump')}
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white text-sm font-semibold shadow-lg shadow-rose-600/25 transition-all hover:scale-[1.02]"
             >
-              <span>Zero-Capital Stack</span>
-              <span className="text-emerald-400 text-xs">(&lt;$150)</span>
+              <span>100 Advanced APT & Red Ops</span>
+              <span className="bg-rose-900/60 text-white px-2 py-0.5 rounded text-xs font-mono font-bold">100/100</span>
             </button>
           </div>
         </div>

@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { Currency } from '../utils/formatters';
 
-export type ActiveTab = 'explorer' | 'portfolio' | 'matrix' | 'calculator' | 'operations';
+export type ActiveTab = 'explorer' | 'portfolio' | 'matrix' | 'calculator' | 'operations' | 'apt_redops';
 
 interface NavbarProps {
   activeTab: ActiveTab;
@@ -132,6 +132,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ShieldCheck className="w-4 h-4" />
               <span>2026 Playbook</span>
             </button>
+
+            <button
+              onClick={() => setActiveTab('apt_redops')}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all ${
+                activeTab === 'apt_redops'
+                  ? 'bg-rose-600 text-white shadow-sm font-bold'
+                  : 'text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-semibold'
+              }`}
+            >
+              <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+              <span>APT & Red Ops (100)</span>
+            </button>
           </nav>
 
           {/* Quick Actions & Preferences */}
@@ -153,6 +165,22 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
               ))}
             </div>
+
+            {/* Reset / Clean Live Ops Button */}
+            <button
+              onClick={() => {
+                if (window.confirm('Purge all session cache, mock counters, and reset system to clean administrative Live Ops state?')) {
+                  localStorage.removeItem('cf_module_registry');
+                  localStorage.removeItem('cf_completed_steps');
+                  window.location.reload();
+                }
+              }}
+              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 transition-colors border border-emerald-200 dark:border-emerald-800"
+              title="Purge test telemetry and initialize clean Live Operations"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Live Ops Clean</span>
+            </button>
 
             {/* Custom Vector Button */}
             <button
@@ -229,6 +257,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             Playbook
+          </button>
+          <button
+            onClick={() => setActiveTab('apt_redops')}
+            className={`px-3 py-1.5 rounded-md whitespace-nowrap font-bold ${
+              activeTab === 'apt_redops' ? 'bg-rose-600 text-white' : 'text-rose-600 dark:text-rose-400'
+            }`}
+          >
+            APT Red Ops (100)
           </button>
         </div>
       </div>

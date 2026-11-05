@@ -13,6 +13,8 @@ import { RiskReturnMatrix } from './components/RiskReturnMatrix';
 import { RoiCalculator } from './components/RoiCalculator';
 import { OperationalNotice } from './components/OperationalNotice';
 import { CustomVectorModal } from './components/CustomVectorModal';
+import { AptRedOpsCenter } from './components/AptRedOpsCenter';
+import { ADVANCED_100_FEATURES } from './data/advancedFeatures';
 import { Currency, formatCurrency } from './utils/formatters';
 import { 
   Sparkles, 
@@ -146,6 +148,10 @@ export default function App() {
   };
 
   const handleLoadPreset = (presetId: string) => {
+    if (presetId === 'apt_redops_jump') {
+      setActiveTab('apt_redops');
+      return;
+    }
     const preset = PRESET_PORTFOLIOS.find(p => p.id === presetId);
     if (preset) {
       setPortfolioVectorIds(preset.vectorIds);
@@ -441,6 +447,32 @@ export default function App() {
           <OperationalNotice
             onLoadBenchmark={() => handleLoadPreset('benchmark_2026')}
             currency={currency}
+          />
+        )}
+
+        {/* TAB 6: 100 Advanced Features & APT Red-Ops Center */}
+        {activeTab === 'apt_redops' && (
+          <AptRedOpsCenter
+            onExportCapabilitiesDoc={() => {
+              let md = `# 100 ADVANCED CAPABILITIES, SCRIPTABLE MODULES & APT RED-OPS PLAYBOOK (2026)\n\n`;
+              md += `Generated: ${new Date().toISOString()}\nTotal Modules: ${ADVANCED_100_FEATURES.length}\n\n---\n\n`;
+              ADVANCED_100_FEATURES.forEach(f => {
+                md += `## #${f.num}. ${f.title} [${f.category} | Phase: ${f.aptPhase}]\n`;
+                md += `**Threat Context:** ${f.threatActorContext}\n\n`;
+                md += `**Red-Team Playbook:** ${f.redTeamPlaybook}\n\n`;
+                md += `**Impact Metric:** ${f.impactMetric}\n\n`;
+                md += `\`\`\`javascript\n${f.scriptSnippet}\n\`\`\`\n\n---\n\n`;
+              });
+              const blob = new Blob([md], { type: 'text/markdown' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = '100-Advanced-Capabilities-APT-Playbook.md';
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+            }}
           />
         )}
 

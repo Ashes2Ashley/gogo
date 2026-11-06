@@ -34,7 +34,7 @@ export const VectorCard: React.FC<VectorCardProps> = ({
   const scalBadge = getScalabilityBadge(vector.scalability);
 
   return (
-    <div className="group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+    <div className="group relative bg-slate-900/85 backdrop-blur-md rounded-2xl border border-slate-800/90 hover:border-rose-900/60 p-5 shadow-lg hover:shadow-2xl hover:shadow-rose-950/20 transition-all flex flex-col justify-between">
       
       {/* Top Header Row */}
       <div>

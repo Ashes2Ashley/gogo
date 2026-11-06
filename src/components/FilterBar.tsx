@@ -58,7 +58,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-16 z-30 shadow-xs transition-colors">
+    <div className="bg-slate-950/80 border-b border-rose-950/30 sticky top-16 z-30 shadow-lg backdrop-blur-md transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
         
         {/* Search & Main Controls Row */}
@@ -72,7 +72,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               placeholder="Search vectors by tool (Claude, ElevenLabs, Aave, Keepa...), title, or keywords..."
               value={filters.searchQuery}
               onChange={e => setFilters(prev => ({ ...prev, searchQuery: e.target.value }))}
-              className="w-full pl-10 pr-9 py-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+              className="w-full pl-10 pr-9 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-500/50 transition-all font-mono text-xs"
             />
             {filters.searchQuery && (
               <button

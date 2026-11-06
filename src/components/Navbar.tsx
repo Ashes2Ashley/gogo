@@ -37,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   setIsDarkMode,
 }) => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-40 w-full border-b border-rose-950/40 bg-slate-950/85 backdrop-blur-xl transition-colors shadow-2xl shadow-black/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           
@@ -47,36 +47,37 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('explorer')}
               className="flex items-center gap-2.5 text-left group focus:outline-none"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 via-blue-600 to-sky-500 flex items-center justify-center shadow-md shadow-blue-500/20 text-white font-bold tracking-wider text-sm transition-transform group-hover:scale-105">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-700 via-rose-950 to-slate-950 border border-rose-600/40 flex items-center justify-center shadow-lg shadow-rose-900/30 text-rose-300 font-mono font-black tracking-wider text-sm transition-transform group-hover:scale-105">
                 26
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">
+                  <span className="font-extrabold text-base sm:text-lg text-white tracking-wider font-mono">
                     CASH FLOW VECTORS
                   </span>
-                  <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-                    v5.0 2026 Edition
+                  <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-950/80 text-rose-300 border border-rose-800/80">
+                    OMINOUS v5.0
                   </span>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">
-                  Non-Real Estate IRL Execution Engine
+                <p className="text-[11px] text-slate-400 font-mono hidden sm:block">
+                  Autonomous IRL Shadow Operations Engine
                 </p>
               </div>
             </button>
           </div>
 
           {/* Navigation Tabs */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl border border-slate-200 dark:border-slate-800 text-sm font-medium">
+          {/* Navigation Tabs */}
+          <nav className="hidden md:flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-800 text-sm font-medium">
             <button
               onClick={() => setActiveTab('explorer')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg transition-all ${
                 activeTab === 'explorer'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-slate-800 text-white shadow-sm font-semibold border border-slate-700'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              <Grid3X3 className="w-4 h-4" />
+              <Grid3X3 className="w-4 h-4 text-slate-400" />
               <span>Vectors Directory</span>
             </button>
 
@@ -84,14 +85,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('portfolio')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg transition-all relative ${
                 activeTab === 'portfolio'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-slate-800 text-white shadow-sm font-semibold border border-slate-700'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              <Briefcase className="w-4 h-4" />
+              <Briefcase className="w-4 h-4 text-emerald-400" />
               <span>Portfolio Builder</span>
               {portfolioCount > 0 && (
-                <span className="inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-blue-600 rounded-full">
+                <span className="inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-emerald-600 rounded-full font-mono">
                   {portfolioCount}
                 </span>
               )}
@@ -101,11 +102,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('matrix')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg transition-all ${
                 activeTab === 'matrix'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-slate-800 text-white shadow-sm font-semibold border border-slate-700'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              <TrendingUp className="w-4 h-4" />
+              <TrendingUp className="w-4 h-4 text-sky-400" />
               <span>Strategy Matrix</span>
             </button>
 
@@ -113,11 +114,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('calculator')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg transition-all ${
                 activeTab === 'calculator'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-slate-800 text-white shadow-sm font-semibold border border-slate-700'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              <SlidersHorizontal className="w-4 h-4" />
+              <SlidersHorizontal className="w-4 h-4 text-amber-400" />
               <span>Allocation Wizard</span>
             </button>
 
@@ -125,11 +126,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('operations')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg transition-all ${
                 activeTab === 'operations'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-slate-800 text-white shadow-sm font-semibold border border-slate-700'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              <ShieldCheck className="w-4 h-4" />
+              <ShieldCheck className="w-4 h-4 text-rose-400" />
               <span>2026 Playbook</span>
             </button>
 
@@ -137,8 +138,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('apt_redops')}
               className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all ${
                 activeTab === 'apt_redops'
-                  ? 'bg-rose-600 text-white shadow-sm font-bold'
-                  : 'text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-semibold'
+                  ? 'bg-gradient-to-r from-rose-700 to-rose-900 text-white shadow-lg shadow-rose-950/60 font-bold border border-rose-500/50'
+                  : 'text-rose-400 hover:bg-rose-950/40 font-semibold'
               }`}
             >
               <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />

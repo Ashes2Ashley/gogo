@@ -20,22 +20,22 @@ export const StatsBanner: React.FC<StatsBannerProps> = ({
   onQuickPresetSelect,
 }) => {
   return (
-    <div className="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white border-b border-slate-800">
+    <div className="bg-gradient-to-b from-slate-950 via-slate-950/90 to-slate-900/40 text-white border-b border-rose-950/30 backdrop-blur-sm relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         
         {/* Top Header & Tagline */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-slate-800/60">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-              <span>Version 5.0 – Full Spectrum Cash Generation (2026 Ready)</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-rose-950/50 text-rose-300 border border-rose-800/50 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping" />
+              <span className="font-mono">ANONYMOUS RECON: 2026 FULL-SPECTRUM PROTOCOLS</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
-              2026 IRL CASH FLOW VECTORS
+            <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-white font-mono flex items-center gap-3">
+              <span>2026 IRL CASH FLOW VECTORS</span>
             </h1>
-            <p className="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl">
+            <p className="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl font-sans">
               100+ low-barrier, high-scalability cash generation methods across AI, Digital Arbitrage, 
-              DeFi, Supply Chain, and Emerging Tech — zero physical real estate required.
+              DeFi, Supply Chain, and Emerging Tech — zero physical real estate, 100% sovereign execution.
             </p>
           </div>
 

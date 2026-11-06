@@ -45,7 +45,8 @@ export default function App() {
     return (localStorage.getItem('cf_currency') as Currency) || 'USD';
   });
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    return localStorage.getItem('cf_dark') === 'true';
+    const saved = localStorage.getItem('cf_dark');
+    return saved !== null ? saved === 'true' : true; // Default to true (ominous dark mode)
   });
 
   // Custom vectors added by user
@@ -325,8 +326,22 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans transition-colors relative selection:bg-rose-900/50 selection:text-rose-200">
       
+      {/* Ominous Anonymous Mask Ambient Background Layer */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0 opacity-20 dark:opacity-25 bg-cover bg-center bg-no-repeat mix-blend-screen"
+        style={{ backgroundImage: `url('/src/assets/images/anonymous_mask_bg_1793914336825.jpg')` }}
+      />
+
+      {/* Cybernetic Scanlines & Vignette Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(2,6,23,0.85)_100%)]" />
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.3)_51%)] bg-[length:100%_4px] opacity-40" />
+
+      {/* Subtle Ominous Ambient Glow Orbs */}
+      <div className="fixed top-20 left-1/4 w-[500px] h-[500px] bg-rose-950/20 rounded-full blur-[140px] pointer-events-none z-0" />
+      <div className="fixed bottom-10 right-1/4 w-[600px] h-[600px] bg-emerald-950/15 rounded-full blur-[160px] pointer-events-none z-0" />
+
       {/* Top Sticky Navbar */}
       <Navbar
         activeTab={activeTab}
@@ -341,7 +356,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         
         {/* TAB 1: Vectors Directory Explorer */}
         {activeTab === 'explorer' && (
